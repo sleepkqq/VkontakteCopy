@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Фотографии</title>
+{% endblock %}
+
+{% block body %}
+    <div class="photo-container">
+        {% for photo in photos %}
+            <div class="photo">
+                <h2>{{ photo.name }}</h2>
+                <img src="{{ photo.url }}" alt="{{ photo.name }}">
+                <form class="delete-form" action="/image/delete/{{ photo.id }}" method="POST">
+                    <button type="button" class="delete-button">Delete</button>
+                </form>
+            </div>
+        {% endfor %}
+    </div>
+    <script src="{{ url_for('static', filename='images.js') }}"></script>
+{% endblock %}

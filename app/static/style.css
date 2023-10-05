@@ -1,0 +1,218 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'Arial', sans-serif;
+    background-color: #EBEBEB;
+}
+
+.appbar {
+    display: flex;
+    align-items: center;
+    background-color: #4C75A3;
+    color: #fff;
+    padding: 6px;
+    height: 34px;
+}
+
+.appbar a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* CSS for the main page link on the left */
+.main-page {
+    margin-left: 400px;
+    margin-right: 40px;
+}
+
+/* CSS for the search bar in the middle */
+.search-container {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    padding: 3px;
+    height: 22px;
+    width: 225px;
+}
+
+/* CSS for the search icon */
+.search-icon {
+    margin-left: 4px;
+    margin-right: 4px;
+    width: 16px;
+    height: 16px;
+}
+
+/* CSS for the search input field */
+.search-input {
+    border: none;
+    width: 100%;
+    padding: 5px;
+    margin-right: 5px;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+.notification-icon {
+    width: 22px;
+    height: 22px;
+    mix-blend-mode: multiply;
+    background-color: #ffffff;
+    margin-left: 30px;
+}
+
+.user-container {
+    margin-left: 570px; /* Adjust spacing */
+}
+
+/* Style for the user icon */
+.user-container img {
+    width: 32px;
+    height: 32px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.content {
+    display: flex;
+}
+
+.services-block {
+    height: 100%;
+    width: 118px;
+    margin-left: 405px;
+    border: 1px solid darkgray;
+}
+
+.main-block {
+    height: 100%;
+    width: 910px;
+    border: 1px solid darkgray;
+}
+
+.auth_form {
+    font-family: 'Jost', sans-serif;
+    position: absolute;
+    top: 25%;
+    left: 40%;
+    width: 350px;
+    height: 500px;
+    background: red;
+    overflow: hidden;
+    background: url("https://doc-08-2c-docs.googleusercontent.com/docs/securesc/68c90smiglihng9534mvqmq1946dmis5/fo0picsp1nhiucmc0l25s29respgpr4j/1631524275000/03522360960922298374/03522360960922298374/1Sx0jhdpEpnNIydS4rnN4kHSJtU1EyWka?e=view&authuser=0&nonce=gcrocepgbb17m&user=03522360960922298374&hash=tfhgbs86ka6divo3llbvp93mg4csvb38") no-repeat center/ cover;
+    border-radius: 10px;
+    border: 1px solid darkgray;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+#chk {
+    display: none;
+}
+
+.signup {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.auth_form label {
+    color: #4C75A3;
+    font-size: 2.3em;
+    justify-content: center;
+    display: flex;
+    margin: 60px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .5s ease-in-out;
+}
+
+.auth_form input {
+    width: 60%;
+    height: 20px;
+    background: #e0dede;
+    justify-content: center;
+    display: flex;
+    margin: 20px auto;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+.auth_form button {
+    width: 60%;
+    height: 40px;
+    justify-content: center;
+    display: block;
+    color: #fff;
+    background: #4C75A3;
+    font-size: 1em;
+    font-weight: bold;
+    margin: 20px auto 10px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    transition: .2s ease-in;
+    cursor: pointer;
+}
+
+.auth_form button:hover {
+    background: #6c91ba;
+}
+
+.login {
+    height: 460px;
+    background: #eee;
+    border-radius: 60% / 10%;
+    transform: translateY(-180px);
+    transition: .8s ease-in-out;
+}
+
+.login label {
+    color: #4C75A3;
+    transform: scale(.6);
+}
+
+#chk:checked ~ .login {
+    transform: translateY(-500px);
+}
+
+#chk:checked ~ .login label {
+    transform: scale(1);
+}
+
+#chk:checked ~ .signup label {
+    transform: scale(.6);
+}
+
+.photo-container {
+    display: flex; /* Display photos in a row */
+    flex-wrap: wrap; /* Wrap photos to the next line if there's not enough space */
+    gap: 20px; /* Spacing between photos */
+}
+
+/* Style individual photos */
+.photo {
+    width: 200px; /* Adjust the width as needed */
+    border: 1px solid #ccc; /* Add a border around each photo */
+    padding: 10px; /* Add some padding to the photo container */
+    text-align: center; /* Center-align the content inside the photo container */
+}
+
+/* Style the photo title */
+.photo h2 {
+    font-size: 16px; /* Adjust the font size */
+    margin: 10px 0; /* Add spacing above and below the title */
+}
+
+/* Style the photo image */
+.photo img {
+    max-width: 100%; /* Ensure images don't exceed the width of the photo container */
+    height: auto; /* Maintain the aspect ratio of the images */
+}

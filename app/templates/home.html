@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Home</title>
+{% endblock %}
+
+{% block body %}
+    <div class="content">
+        <div class="services-block">
+            <a href="/user/{{ current_user.id }}">Моя страница</a><br>
+            <a href="#">Сообщения</a>
+        </div>
+        <div class="main-block">
+            {% if current_user.username %}
+                <div>
+                    <form id="logoutForm">
+                        <input type="submit" value="Logout">
+                    </form>
+                </div>
+                <div>
+                    <form id="uploadForm" enctype="multipart/form-data">
+                        <div>
+                            <label for="photo">Выберите фото:</label>
+                            <input type="file" name="photo" id="photo" accept="image/jpeg" required>
+                            <br>
+                        </div>
+                        <div>
+                            <label for="text">Название:</label>
+                            <input type="text" name="text" id="text" required>
+                        </div>
+                        <input type="submit" value="Загрузить">
+                    </form>
+                </div>
+            {% else %}
+                <div>
+                    <a href="/authorization">
+                        <button>Авторизация</button>
+                    </a>
+                </div>
+            {% endif %}
+            <div>
+                <a href="/images">
+                    <button>Фотографии</button>
+                </a>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='home.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+    {% endblock %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+</head>
+<body>
+<div class="appbar">
+    <a href="/" class="main-page">Main Page</a>
+    <div class="search-container">
+        <img src="https://cdn.pixabay.com/photo/2017/01/13/01/22/magnifying-glass-1976105_960_720.png"
+             class="search-icon" alt="Search">
+        <input type="search" class="search-input" placeholder="Поиск">
+    </div>
+    {% if current_user.username %}
+        <img src="https://icones.pro/wp-content/uploads/2021/04/icone-cloche-notification-grise.png"
+             alt="Notifications"
+             class="notification-icon">
+        <div class="user-container">
+            <a href="/user/{{ current_user.id }}">
+                <img src="https://icon-library.com/images/anonymous-user-icon/anonymous-user-icon-2.jpg" alt="User">
+            </a>
+        </div>
+    {% else %}
+        <div class="user-container">
+            <a href="/authorization">Авторизация</a>
+        </div>
+    {% endif %}
+
+</div>
+{% block body %}
+{% endblock %}
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
