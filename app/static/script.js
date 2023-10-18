@@ -30,19 +30,18 @@ function successToastify(message) {
     }).showToast();
 }
 
-document.getElementById("avatar").addEventListener("click", function () {
-    const dropdown = document.getElementById("dropdown");
-    if (dropdown.style.display === "block") {
-        dropdown.style.display = "none";
-    } else {
-        dropdown.style.display = "block";
-    }
+document.querySelector('.user-container').addEventListener('click', function (event) {
+    const dropdown = document.getElementById('dropdown');
+    dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
+
+    event.stopPropagation();
 });
 
-document.addEventListener("click", function (event) {
-    if (!event.target.matches("#avatar")) {
-        const dropdown = document.getElementById("dropdown");
-        dropdown.style.display = "none";
+document.addEventListener('click', function (event) {
+    const dropdown = document.getElementById('dropdown');
+
+    if (dropdown.style.display === 'block' && !dropdown.contains(event.target)) {
+        dropdown.style.display = 'none';
     }
 });
 
@@ -53,20 +52,32 @@ document.addEventListener('DOMContentLoaded', function () {
     logoutForm.addEventListener('submit', function (event) {
         event.preventDefault();
 
-        fetch('/logout', {
-            method: 'POST',
+        Swal.fire({
+            title: 'Выйти из аккаунта?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Подтвердить',
+            cancelButtonText: 'Закрыть',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch('/logout', {
+                    method: 'POST',
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            window.location.href = '/';
+                        } else {
+                            errorToastify(data.message);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            }
         })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    window.location.href = '/';
-                } else {
-                    errorToastify(data.message);
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
     });
 });
 
