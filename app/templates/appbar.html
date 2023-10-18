@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    {% block title %}
+    {% block head %}
     {% endblock %}
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
@@ -11,7 +11,7 @@
 <div class="appbar">
     <a href="/" class="main-page">Main Page</a>
     <div class="search-container">
-        <img src="https://cdn.pixabay.com/photo/2017/01/13/01/22/magnifying-glass-1976105_960_720.png"
+        <img src="https://cdn-icons-png.flaticon.com/512/860/860824.png"
              class="search-icon" alt="Search">
         <input type="search" class="search-input" placeholder="Поиск">
     </div>
@@ -20,16 +20,20 @@
              alt="Notifications"
              class="notification-icon">
         <div class="user-container">
-            <a href="/user/{{ current_user.id }}">
-                <img src="https://icon-library.com/images/anonymous-user-icon/anonymous-user-icon-2.jpg" alt="User">
-            </a>
+            <img src="https://icon-library.com/images/anonymous-user-icon/anonymous-user-icon-2.jpg" alt="User"
+                 id="avatar">
+            <div id="dropdown" class="dropdown-content">
+                <a href="/user/{{ current_user.id }}">Моя страница</a>
+                <form id="logoutForm">
+                    <input type="submit" value="Выйти">
+                </form>
+            </div>
         </div>
     {% else %}
         <div class="user-container">
             <a href="/authorization">Авторизация</a>
         </div>
     {% endif %}
-
 </div>
 {% block body %}
 {% endblock %}

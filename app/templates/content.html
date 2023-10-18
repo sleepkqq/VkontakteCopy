@@ -1,0 +1,21 @@
+{% extends 'appbar.html' %}
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+    <div class="content">
+        <div class="services-block">
+            <a href="/user/{{ current_user.id }}">Моя страница</a>
+            <a href="#">Новости</a>
+            <a href="#">Сообщения</a>
+            <a href="#">Друзья</a>
+            <a href="#">Сообщества</a>
+            <a href="/images">Фотографии</a>
+        </div>
+        <div class="main-block">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+{% endblock %}

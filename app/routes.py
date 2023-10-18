@@ -12,7 +12,12 @@ flickr_upload = flickrapi.FlickrAPI(api_key, api_secret, format='etree')
 
 @app.route('/')
 def main():
-    return render_template('home.html', current_user=current_user)
+    return redirect(url_for('feed'))
+
+
+@app.route('/feed')
+def feed():
+    return render_template('feed.html', current_user=current_user)
 
 
 @app.route('/login', methods=['POST'])

@@ -55,7 +55,7 @@ body {
     margin-right: 5px;
 }
 
-textarea:focus, input:focus{
+textarea:focus, input:focus {
     outline: none;
 }
 
@@ -79,6 +79,37 @@ textarea:focus, input:focus{
     cursor: pointer;
 }
 
+.dropdown-content {
+    display: none;
+    position: absolute;
+    margin-top: 6px;
+    left: 1276px;
+    min-width: 160px;
+    border: 1px solid darkgray;
+}
+
+.dropdown-content a, .dropdown-content input {
+    color: black;
+    background-color: #EBEBEB;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    font-weight: normal;
+    padding: 5px 5px;
+}
+
+.dropdown-content input {
+    width: 100%;
+}
+
+.dropdown-content a:hover, .dropdown-content input:hover {
+    background-color: #f1f1f1;
+}
+
 .content {
     display: flex;
 }
@@ -86,8 +117,26 @@ textarea:focus, input:focus{
 .services-block {
     height: 100%;
     width: 118px;
-    margin-left: 405px;
+    margin-left: 398px;
     border: 1px solid darkgray;
+    padding: 5px 3px;
+}
+
+.services-block a {
+    color: black;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    border: none;
+    cursor: pointer;
+    font-weight: normal;
+    height: 27px;
+    border-radius: 5px;
+    line-height: 27px;
+}
+
+.services-block a:hover {
+    background-color: #f1f1f1;
 }
 
 .main-block {

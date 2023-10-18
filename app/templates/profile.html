@@ -1,10 +1,10 @@
-{% extends 'base.html' %}
+{% extends 'content.html' %}
 
-{% block title %}
+{% block head %}
     <title>Профиль {{ user.username }}</title>
 {% endblock %}
 
-{% block body %}
+{% block content %}
     <div>
         <div class="container">
             {{ user.id }}

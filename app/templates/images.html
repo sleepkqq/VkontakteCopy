@@ -1,10 +1,10 @@
-{% extends 'base.html' %}
+{% extends 'content.html' %}
 
-{% block title %}
+{% block head %}
     <title>Фотографии</title>
 {% endblock %}
 
-{% block body %}
+{% block content %}
     <div class="photo-container">
         {% for photo in photos %}
             <div class="photo">

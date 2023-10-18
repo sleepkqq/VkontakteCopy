@@ -1,0 +1,25 @@
+{% extends 'content.html' %}
+
+{% block head %}
+    <title>Home</title>
+{% endblock %}
+
+{% block content %}
+    {% if current_user.username %}
+        <div>
+            <form id="uploadForm" enctype="multipart/form-data">
+                <div>
+                    <label for="photo">Выберите фото:</label>
+                    <input type="file" name="photo" id="photo" accept="image/jpeg" required>
+                    <br>
+                </div>
+                <div>
+                    <label for="text">Название:</label>
+                    <input type="text" name="text" id="text" required>
+                </div>
+                <input type="submit" value="Загрузить">
+            </form>
+        </div>
+    {% endif %}
+    <script src="{{ url_for('static', filename='home.js') }}"></script>
+{% endblock %}
