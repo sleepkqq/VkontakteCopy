@@ -24,7 +24,7 @@
                  id="avatar">
             <img src="https://icons.veryicon.com/png/o/miscellaneous/decon/dropdown-1.png" alt="Dropdown">
             <div id="dropdown" class="dropdown-content">
-                <a href="/user/{{ current_user.id }}">Моя страница</a>
+                <a href="/{{ current_user.username }}">Моя страница</a>
                 <form id="logoutForm">
                     <input type="submit" value="Выйти">
                 </form>

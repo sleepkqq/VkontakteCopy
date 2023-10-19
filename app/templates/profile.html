@@ -1,15 +1,35 @@
 {% extends 'content.html' %}
 
 {% block head %}
-    <title>Профиль {{ user.username }}</title>
+    <title>{{ user.first_name }} {{ user.second_name }}</title>
 {% endblock %}
 
 {% block content %}
-    <div>
-        <div class="container">
-            {{ user.id }}
-            {{ user.username }}
-            {{ user.email }}
+    <div class="user-page">
+        <div class="left-block">
+            <div class="avatar">
+                <img src="https://icon-library.com/images/anonymous-user-icon/anonymous-user-icon-2.jpg" alt="user-picture">
+            </div>
+            <div class="functional">
+                <form class="edit" id="editUserPageForm">
+                    <input type="submit" value="Редактировать страницу">
+                </form>
+            </div>
+        </div>
+        <div class="right-block">
+            <div class="info">
+                <div class="first-second-name">
+                    {{ user.first_name }} {{ user.second_name }}
+                </div>
+                <div class="status">
+                    {% if user.status %}
+                        {{ user.status }}
+                    {% endif %}
+                    <form class="edit" id="editUserStatusForm">
+                        <input type="submit" value="изменить статус">
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}

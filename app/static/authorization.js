@@ -1,16 +1,18 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     const registerForm = document.querySelector('#registerForm');
-    const usernameInput = document.querySelector('#usernameRegister');
-    const emailInput = document.querySelector('#emailRegister');
+    const phoneNumberInput = document.querySelector('#phoneNumberRegister')
+    const firstNameInput = document.querySelector('#firstNameRegister');
+    const secondNameInput = document.querySelector('#secondNameRegister');
     const passwordInput = document.querySelector('#passwordRegister');
 
     document.querySelector('#toast-container');
     registerForm.addEventListener('submit', function (event) {
         event.preventDefault(); // Prevent the default form submission
 
-        const username = usernameInput.value;
-        const email = emailInput.value;
+        const phoneNumber = phoneNumberInput.value;
+        const firstName = firstNameInput.value;
+        const secondName = secondNameInput.value;
         const password = passwordInput.value;
 
         fetch('/register', {
@@ -18,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({username, email, password}),
+            body: JSON.stringify({phoneNumber, firstName, secondName, password}),
         })
             .then(response => response.json())
             .then(data => {
@@ -37,13 +39,13 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function () {
 
     const loginForm = document.querySelector('#loginForm');
-    const usernameInput = document.querySelector('#usernameLogin');
+    const phoneNumberInput = document.querySelector('#phoneNumberLogin')
     const passwordInput = document.querySelector('#passwordLogin');
 
     loginForm.addEventListener('submit', function (event) {
         event.preventDefault();
 
-        const username = usernameInput.value;
+        const phoneNumber = phoneNumberInput.value;
         const password = passwordInput.value;
 
         fetch('/login', {
@@ -51,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({username, password}),
+            body: JSON.stringify({phoneNumber, password}),
         })
             .then(response => response.json())
             .then(data => {

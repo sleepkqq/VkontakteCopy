@@ -12,9 +12,10 @@
 			<div class="signup">
 				<form id="registerForm">
 					<label for="chk" aria-hidden="true">Sign up</label>
-					<input type="text" name="usernameRegister" id="usernameRegister" placeholder="Username" required="">
-					<input type="email" name="emailRegister" id="emailRegister" placeholder="Email" required="">
-					<input type="password" name="passwordRegister" id="passwordRegister" placeholder="Password" required="">
+                    <input type="text" name="phoneNumberRegister" id="phoneNumberRegister" pattern="^((\+7|7|8)+([0-9]){10})$" placeholder="Номер телефона" required>
+					<input type="text" name="firstNameRegister" id="firstNameRegister" placeholder="Имя" required>
+                    <input type="text" name="secondNameRegister" id="secondNameRegister" placeholder="Фамилия" required>
+					<input type="password" name="passwordRegister" id="passwordRegister" placeholder="Пароль" required>
 					<button>Sign up</button>
 				</form>
 			</div>
@@ -22,9 +23,9 @@
 			<div class="login">
 				<form id="loginForm">
 					<label for="chk" aria-hidden="true">Login</label>
-					<input type="text" name="usernameLogin" id="usernameLogin" placeholder="Username" required="">
-					<input type="password" name="passwordLogin" id="passwordLogin" placeholder="Password" required="">
-					<button>Login</button>
+					<input type="text" name="phoneNumberLogin" pattern="^((\+7|7|8)+([0-9]){10})$" placeholder="Номер телефона" required>
+					<input type="password" name="passwordLogin" id="passwordLogin" placeholder="Пароль" required>
+					<button>Sign in</button>
 				</form>
 			</div>
 	</div>

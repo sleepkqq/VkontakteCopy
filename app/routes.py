@@ -26,12 +26,12 @@ def login():
         return redirect(url_for('main'))
 
     if request.method == 'POST':
-        username = request.json['username']
+        phone_number = request.json['phoneNumber']
         password = request.json['password']
 
-        user = User.query.filter_by(username=username).first()
+        user = User.query.filter_by(phone_number=phone_number).first()
         if not user or not user.check_password(password):
-            error_message = 'Пользователя с таким именем не существует' \
+            error_message = 'Пользователя с таким номером не существует' \
                 if not user else 'Неправильный пароль'
             return jsonify({
                 'success': False,
@@ -50,21 +50,20 @@ def register():
         return redirect(url_for('main'))
 
     if request.method == 'POST':
-        username = request.json['username']
-        email = request.json['email']
+        phone_number = request.json['phoneNumber']
+        first_name = request.json['firstName']
+        second_name = request.json['secondName']
         password = request.json['password']
 
-        username_exists = User.query.filter_by(username=username).first()
-        email_exists = User.query.filter_by(email=email).first()
-        if username_exists or email_exists:
-            error_message = 'Данное имя пользователя уже используется' \
-                if username_exists else 'Данная почта уже используется'
+        phone_number_exists = User.query.filter_by(phone_number=phone_number).first()
+        if phone_number_exists:
+            error_message = 'Данный номер уже используется'
             return jsonify({
                 'success': False,
                 'message': error_message
             })
 
-        new_user = User(username=username, email=email)
+        new_user = User(phone_number, first_name, second_name)
         new_user.set_password(password)
         new_user.save()
         login_user(new_user)
@@ -96,9 +95,9 @@ def logout():
         })
 
 
-@app.route('/user/<int:user_id>')
-def user_profile(user_id):
-    user = User.query.filter_by(id=user_id).first()
+@app.route('/<string:username>')
+def user_profile(username):
+    user = User.query.filter_by(username=username).first()
     if not user:
         return render_template('404page.html'), 404
     return render_template('profile.html', user=user)
@@ -113,6 +112,12 @@ def page_not_found(e):
 @login_required
 @app.route('/image/upload', methods=['POST'])
 def upload_photo():
+    if not current_user.username:
+        return jsonify({
+            'success': False,
+            'message': 'Авторизуйтесь'
+        })
+
     photo = request.files['photo']
     text = request.form.get('text')
 
