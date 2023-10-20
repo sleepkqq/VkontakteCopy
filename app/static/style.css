@@ -314,13 +314,13 @@ textarea:focus, input:focus {
 .user-page .right-block .first-second-name {
     color: #4C75A3;
     font-weight: bold;
-    padding-left: 6px;
+    padding: 0 0 5px 6px;
 }
 
 .user-page .right-block .status .edit input {
     color: #a8a8a8;
     background-color: #EBEBEB;
-    padding: 3px 0 10px 6px;
+    padding: 0 0 5px 6px;
     text-decoration: none;
     display: block;
     text-align: left;
@@ -329,4 +329,13 @@ textarea:focus, input:focus {
     font-weight: normal;
 }
 
+.user-page .right-block .status .status-text {
+    color: black;
+    padding: 0 0 5px 6px;
+    width: 600px;
+    word-wrap: break-word;
+}
 
+.user-page .right-block .status input {
+    padding: 0 0 4px 6px;
+}

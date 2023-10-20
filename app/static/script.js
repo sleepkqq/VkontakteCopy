@@ -46,7 +46,6 @@ document.addEventListener('click', function (event) {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-
     const logoutForm = document.querySelector('#logoutForm');
 
     logoutForm.addEventListener('submit', function (event) {

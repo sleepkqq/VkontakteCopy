@@ -8,28 +8,40 @@
     <div class="user-page">
         <div class="left-block">
             <div class="avatar">
-                <img src="https://icon-library.com/images/anonymous-user-icon/anonymous-user-icon-2.jpg" alt="user-picture">
+                <img src="https://icon-library.com/images/anonymous-user-icon/anonymous-user-icon-2.jpg"
+                     alt="user-picture">
             </div>
             <div class="functional">
-                <form class="edit" id="editUserPageForm">
-                    <input type="submit" value="Редактировать страницу">
-                </form>
+                {% if current_user.username %}
+                    <form class="edit" id="editUserPageForm">
+                        <input type="submit" value="Редактировать страницу">
+                    </form>
+                {% endif %}
             </div>
         </div>
         <div class="right-block">
             <div class="info">
+                <div id="usernameDiv" data-my-variable="{{ user.username }}"></div>
                 <div class="first-second-name">
                     {{ user.first_name }} {{ user.second_name }}
                 </div>
                 <div class="status">
-                    {% if user.status %}
-                        {{ user.status }}
+                    <div class="status-text" id="status-text">
+                        {% if user.status %}
+                            {{ user.status }}
+                        {% endif %}
+                    </div>
+                    {% if current_user.username %}
+                        <form class="edit" id="editUserStatusForm">
+                            <input type="submit" value="изменить статус" id="changeStatusInput">
+                        </form>
                     {% endif %}
-                    <form class="edit" id="editUserStatusForm">
-                        <input type="submit" value="изменить статус">
-                    </form>
                 </div>
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block script %}
+    <script src="{{ url_for('static', filename='profile.js') }}"></script>
 {% endblock %}

@@ -6,9 +6,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const secondNameInput = document.querySelector('#secondNameRegister');
     const passwordInput = document.querySelector('#passwordRegister');
 
-    document.querySelector('#toast-container');
     registerForm.addEventListener('submit', function (event) {
-        event.preventDefault(); // Prevent the default form submission
+        event.preventDefault();
 
         const phoneNumber = phoneNumberInput.value;
         const firstName = firstNameInput.value;

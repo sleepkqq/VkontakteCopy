@@ -8,6 +8,10 @@ import string
 bcrypt = Bcrypt()
 
 
+def save_edit():
+    db.session.commit()
+
+
 class Item:
     def save(self):
         db.session.add(self)
